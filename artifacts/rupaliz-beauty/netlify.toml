@@ -1,0 +1,16 @@
+[build]
+  command = "cd ../.. && pnpm install --frozen-lockfile && pnpm --filter @workspace/rupaliz-beauty run build"
+  publish = "dist/public"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PNPM_VERSION = "11.6.0"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
